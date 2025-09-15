@@ -13,7 +13,7 @@ This theme is still under review.
 
 ```
 #install.packages("remotes")
-remotes::install_github("commfish/theme_adfg")
+remotes::install_github("commfish/adfggraph")
 ```
 
 FLAG**- set this up
