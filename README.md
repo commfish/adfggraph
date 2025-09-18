@@ -16,17 +16,17 @@ This theme is still under review.
 remotes::install_github("commfish/adfggraph")
 ```
 
-FLAG**- set this up
-
 ### Examples
 The dataset "iris" is from the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) and was used for the examples.
 
 Basic scatterplot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
     labs( x= "Petal length", y="Petal width") + 
-    theme_adfg_2(box = "yes")
+    theme_adfg(box = "yes")
 ```
 
 ![basic plot](/example_figures/base_plot.png)
@@ -34,9 +34,11 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
 Basic multipanel plot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
     labs( x= "Petal length", y="Petal width") + 
-    theme_adfg_2(box = "yes")+ 
+    theme_adfg(box = "yes")+ 
     facet_wrap(~Species, scales = "free")+
     guides(color = "none")
 ```
@@ -46,9 +48,11 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
 Violin plot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
     labs( x= "Species", y="Frequency") + 
-    theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ #move legend to a good spot
+    theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ # move legend to a good spot
     scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
 
