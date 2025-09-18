@@ -18,10 +18,15 @@ This theme is still under review.
 `adfggraph` can be installed from GitHub with `remotes`
 
 ```
-#install.packages("remotes")
+install.packages("remotes")
 remotes::install_github("commfish/adfggraph")
+library(adfggraph)
 ```
-
+While frowned upon in official ADF\&G publications, adding a color palette to a graph can greatly improve the impact, especially for posters and presentations. The theme itself is black and white, but colors can be added with [adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color palette of choice. adfg\_colors has some ADF\&G and Alaska-based color palettes.
+```
+remotes::install_github("justinpriest/adfgcolors")
+library(adfgcolors)
+```
 ### Examples
 The dataset "iris" is from the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) and was used for the examples.
 
@@ -29,7 +34,6 @@ Basic scatterplot:
 
 ```
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
     labs(x = "Petal length", y ="Petal width") + 
     theme_adfg(box = "yes")
@@ -41,7 +45,6 @@ Basic multipanel plot:
 
 ```
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
     labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(box = "yes") + 
@@ -55,7 +58,6 @@ Violin plot:
 
 ```
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
     labs(x = "Species", y = "Frequency") + 
     theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes") + # move legend to a good spot
@@ -66,16 +68,12 @@ ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin()
 
 
 
-### Colors
-While frowned upon in official ADF\&G publications, adding a color palette to a graph can greatly improve the impact, especially for posters and presentations. The theme itself is black and white, but colors can be added with [adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color palette of choice. adfg\_colors has some ADF\&G and Alaska-based color palettes.
+### Color Plots
 
-Scatterplot:
+Basic scatterplot:
 
 ```
-remotes::install_github("justinpriest/adfgcolors")
-library(adfgcolors)
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_point() +
     labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(legend.position.set = c(0.9, 0.18), #move legend to a good spot
@@ -85,13 +83,10 @@ ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_po
 
 ![basic plot](/example_figures/color_plot.png)
 
-Multipanel plot:
+Basic multipanel plot:
 
 ```
-remotes::install_github("justinpriest/adfgcolors")
-library(adfgcolors)
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
     labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(box = "yes")+ 
@@ -106,10 +101,7 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
 Violin plot:
 
 ```
-remotes::install_github("justinpriest/adfgcolors")
-library(adfgcolors)
 library(ggplot2)
-library(adfggraph)
 ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin() +
     labs(x = "Species", y = "Frequency") + 
     theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ #move legend to a good spot
