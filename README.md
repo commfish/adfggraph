@@ -1,3 +1,9 @@
+---
+output:
+  word_document: default
+  html_document: default
+  pdf_document: default
+---
 # adfggraph
 
 A ggplot2 theme for reproducible figures in R in a uniform Alaska Department of Fish and Game (ADF\&G) style.
@@ -66,13 +72,14 @@ While frowned upon in official ADF\&G publications, adding a color palette to a 
 Scatterplot:
 
 ```
+remotes::install_github("justinpriest/adfgcolors")
+library(adfgcolors)
 library(ggplot2)
 library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_point() +
     labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(legend.position.set = c(0.9, 0.18), #move legend to a good spot
-                 box ="yes" #border
-    )+ 
+                 box ="yes") + # add a border
     scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
 
@@ -81,6 +88,8 @@ ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_po
 Multipanel plot:
 
 ```
+remotes::install_github("justinpriest/adfgcolors")
+library(adfgcolors)
 library(ggplot2)
 library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
@@ -88,7 +97,7 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
     theme_adfg(box = "yes")+ 
     scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)+
     facet_wrap(~Species, scales = "free")+
-    guides(color = "none")) #turn off legend, not needed here
+    guides(color = "none") # turn off legend, not needed here
 ```
 
 ![facet plot](/example_figures/facet_plot.png)
@@ -97,6 +106,8 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
 Violin plot:
 
 ```
+remotes::install_github("justinpriest/adfgcolors")
+library(adfgcolors)
 library(ggplot2)
 library(adfggraph)
 ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin() +
