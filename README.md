@@ -19,7 +19,7 @@ remotes::install_github("commfish/adfggraph")
 FLAG**- set this up
 
 ### Examples
-The dataset "iris" the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) was used for the examples.
+The dataset "iris" is from the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) and was used for the examples.
 
 Basic scatterplot:
 
