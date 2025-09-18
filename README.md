@@ -1,16 +1,10 @@
----
-output:
-  word_document: default
-  html_document: default
-  pdf_document: default
----
 # adfggraph
 
 A ggplot2 theme for reproducible figures in R in a uniform Alaska Department of Fish and Game (ADF\&G) style.
 
 
 
-This theme creates a graph template for ADF\&G biologists, biometricians, and scientists to create a uniform graph output style that conforms with ADF\&G publication standards. The theme contains one function: theme_adfg, which can be added to a ggplot object to set the theme. This theme was created in collaboration with the ADF\&G reproducibility crew and publication team, to create uniform and professional ADF\&G figures. This work is heavily based on Andrew Padilla's theme\_adfg draft code (I even stole the name) and theme\_crisp by Justin Priest. The majority of this code was written by Padilla and Priest, and my contribution was just minor edits and finalizations.
+This theme creates a graph template for ADF\&G biologists, biometricians, and scientists to create a uniform graph output style that conforms with ADF\&G publication standards. The theme contains one function: theme_adfg, which can be added to a ggplot object to set the theme. This theme was created in collaboration with the ADF\&G reproducibility crew and publication team, to create uniform and professional ADF\&G figures. This work is heavily based on Andrew Padilla's theme\_adfg draft code (I even stole the name) and theme\_crisp by Justin Priest. The majority of this code was written by Padilla and Priest.
 
 This theme is still under review.
 
