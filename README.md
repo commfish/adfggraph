@@ -66,6 +66,8 @@ While frowned upon in official ADF\&G publications, adding a color palette to a 
 Scatterplot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
     labs( x= "Petal length", y="Petal width") + 
     theme_adfg(legend.position.set = c(0.9, 0.18), #move legend to a good spot
@@ -79,6 +81,8 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
 Multipanel plot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
     labs( x= "Petal length", y="Petal width") + 
     theme_adfg(box = "yes")+ 
@@ -93,6 +97,8 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
 Violin plot:
 
 ```
+library(ggplot2)
+library(adfggraph)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
     labs( x= "Species", y="Frequency") + 
     theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ #move legend to a good spot
