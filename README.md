@@ -22,7 +22,7 @@ install.packages("remotes")
 remotes::install_github("commfish/adfggraph")
 library(adfggraph)
 ```
-While frowned upon in official ADF\&G publications, adding a color palette to a graph can greatly improve the impact, especially for posters and presentations. The theme itself is black and white, but colors can be added with [adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color palette of choice. adfg\_colors has some ADF\&G and Alaska-based color palettes.
+While frowned upon in official ADF\&G publications, adding a color palette to a graph can greatly improve the impact, especially for posters and presentations. The theme itself is black and white, but colors can be added with [adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color palette of choice. The function adfg\_colors has some ADF\&G and Alaska-based color palettes.
 ```
 remotes::install_github("justinpriest/adfgcolors")
 library(adfgcolors)
@@ -92,7 +92,7 @@ ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_poi
     theme_adfg(box = "yes")+ 
     scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)+
     facet_wrap(~Species, scales = "free")+
-    guides(color = "none") # turn off legend, not needed here
+    guides(color = "none") # turn off legend
 ```
 
 ![facet plot](/example_figures/facet_plot.png)
@@ -104,7 +104,7 @@ Violin plot:
 library(ggplot2)
 ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin() +
     labs(x = "Species", y = "Frequency") + 
-    theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ #move legend to a good spot
+    theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ # move legend to a good spot
     scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
 
