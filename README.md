@@ -24,8 +24,8 @@ Basic scatterplot:
 ```
 library(ggplot2)
 library(adfggraph)
-ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
-    labs( x= "Petal length", y="Petal width") + 
+ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
+    labs(x = "Petal length", y ="Petal width") + 
     theme_adfg(box = "yes")
 ```
 
@@ -36,8 +36,8 @@ Basic multipanel plot:
 ```
 library(ggplot2)
 library(adfggraph)
-ggplot(iris) + aes(x = Petal.Length, y= Petal.Width) + geom_point() +
-    labs( x= "Petal length", y="Petal width") + 
+ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
+    labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(box = "yes") + 
     facet_wrap(~Species, scales = "free") +
     guides(color = "none")
@@ -51,7 +51,7 @@ Violin plot:
 library(ggplot2)
 library(adfggraph)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
-    labs( x= "Species", y="Frequency") + 
+    labs(x = "Species", y = "Frequency") + 
     theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes") + # move legend to a good spot
     scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
@@ -68,8 +68,8 @@ Scatterplot:
 ```
 library(ggplot2)
 library(adfggraph)
-ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
-    labs( x= "Petal length", y="Petal width") + 
+ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_point() +
+    labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(legend.position.set = c(0.9, 0.18), #move legend to a good spot
                  box ="yes" #border
     )+ 
@@ -84,7 +84,7 @@ Multipanel plot:
 library(ggplot2)
 library(adfggraph)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
-    labs( x= "Petal length", y="Petal width") + 
+    labs(x = "Petal length", y = "Petal width") + 
     theme_adfg(box = "yes")+ 
     scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)+
     facet_wrap(~Species, scales = "free")+
@@ -99,8 +99,8 @@ Violin plot:
 ```
 library(ggplot2)
 library(adfggraph)
-ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
-    labs( x= "Species", y="Frequency") + 
+ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin() +
+    labs(x = "Species", y = "Frequency") + 
     theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes")+ #move legend to a good spot
     scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
