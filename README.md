@@ -8,7 +8,7 @@ This theme creates a graph template for ADF\&G biologists, biometricians, and sc
 
 This theme is still under review.
 
-### Installing adfggraph
+## Installing adfggraph
 `adfggraph` can be installed from GitHub with `remotes`
 
 ```
@@ -21,9 +21,10 @@ While frowned upon in official ADF\&G publications, adding a color palette to a 
 remotes::install_github("justinpriest/adfgcolors")
 library(adfgcolors)
 ```
-### Examples
+## Examples
 The dataset "iris" is from the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) and was used for the examples.
 
+### Black and White Figures
 Basic scatterplot:
 
 ```
@@ -62,7 +63,7 @@ ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin()
 
 
 
-### Color Plots
+### Color Figures
 
 Basic scatterplot:
 
