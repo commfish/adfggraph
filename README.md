@@ -4,7 +4,7 @@ A ggplot2 theme for reproducible figures in R in a uniform Alaska Department of 
 
 
 
-This theme creates a graph template for ADF\&G biologists, biometricians, and scientists to create a uniform graph output style that conforms with ADF\&G publication standards. The theme contains one function: theme_adfg, which can be added to a ggplot object to set the theme. This theme was created in collaboration with the ADF\&G reproducibility crew and publication team, to create uniform and professional ADF\&G figures. This work is heavily based on Andrew Padilla's theme\_adfg draft code (I even stole the name) and theme\_crisp by Justin Priest. The majority of this code was written by Padilla and Priest.
+This theme creates a graph template for ADF\&G biologists, biometricians, and scientists to create a uniform graph output style that conforms with ADF\&G publication standards. The theme contains one function: theme_adfg, which can be added to a ggplot object to set the theme. This theme was created in collaboration with the ADF\&G reproducibility crew and publication team, to create uniform and professional ADF\&G figures. This work is heavily based on Andrew Padilla's theme\_adfg draft code and theme\_crisp by Justin Priest. The majority of this code was written by Padilla and Priest.
 
 This theme is still under review.
 
@@ -53,9 +53,9 @@ Violin plot:
 ```
 library(ggplot2)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
-    labs(x = "Species", y = "Frequency") + 
-    theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes") + # move legend to a good spot
-    scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
+  labs(x = "Species", y = "Frequency") + 
+  theme_adfg(legend.position.set = c(0.9, 0.2), box = "yes") + # move legend to a good spot
+  scale_fill_grey(start = 0, end = 1)
 ```
 
 ![violin plot](/example_figures/fill_plot_grey.png)
