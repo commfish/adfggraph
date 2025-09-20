@@ -106,7 +106,7 @@ ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin(
 ![violin plot](/example_figures/fill_plot.png)
 
 
-### Box
+## Box
 Use the argument box = "no" to turn off the box that surrounds the plot. This box was added to comply with ADF&G publication standards, but may not make sense for presentations or multi-panel plots.
 
 
