@@ -106,7 +106,36 @@ ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin(
 ![violin plot](/example_figures/fill_plot.png)
 
 
-## Box
-Use the argument box = "no" to turn off the box that surrounds the plot. This box was added to comply with ADF&G publication standards, but may not make sense for presentations or multi-panel plots.
+##Arguments and defaults
+
+### font_size
+The font size. The default is 18.
+
+### font_family
+The font family. The default is "Times New Roman," in accordance with ADF&G publication recommendations.
+
+### rel_small
+The font size for the legend. The default is 0.86*font_size.
+
+### rel_tiny
+The font size for the caption, if one is included. The default is 0.79*font_size.
+
+### rel_large
+The font size for the title. The default is 1.15*font_size.
+
+### legend.position.set
+The coordinates inside the plot panel where the legend is placed. The default is c(0.8,0.9). This can be changed to different coordinates or "left", "right", "top", or "bottom".
+
+### legend.justification
+The anchor point where the legend is set. The default is "center". This can be changed to "left", "right", "top", or "bottom".
+
+### strip.placement
+Where the title is placed relative to the plot panels. The default is "outside", this could be changed to "inside".
+
+### strip.text.y
+How the y-axis is drawn. The default is element_text(angle=-90), which puts the y-axis text at 90 degrees.
+
+### box
+A box is drawn around the plot to comply with ADF&G publication standards. To turn this off, use box = "no". The default is box = "yes".
 
 
