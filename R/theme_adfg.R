@@ -10,7 +10,7 @@ theme_adfg = function (font_size = 18,
                          rel_tiny = 0.79 * font_size/font_size, #font size for the caption
                          rel_large = 1.15 * font_size/font_size, #font size for the title
                          legend.position.set= c(0.8,0.9), #"left", "right", "bottom", "top"; coodinates inside the plot panel where the legend is placed
-                         legend.justification = c("center"), #the anchor point where the legend is set
+                         legend.justification = "center", #the anchor point where the legend is set
                          strip.placement = "outside", #where labels are placed relative to the plot panels (ex: "outside"; "inside")
                          strip.text.y = element_text(angle = -90), #how the y-axis are drawn. Here, it is at a 90 degree angle
                          box = "yes" #if box = "yes", black rectangle boarder
