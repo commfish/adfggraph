@@ -8,6 +8,7 @@
 #' @param font_size Size in points for font. Default is 18.
 #' @param font_family Sets which font family you want to use. Default is
 #' Times New Roman.
+#' @param ... Other arguments
 #'
 #' @return The output returned will be either an object of \code{theme_adfg()},
 #'
@@ -39,10 +40,12 @@ theme_adfg = function(font_size = 18,
                        strip.placement = "outside", #where labels are placed relative to the plot panels (ex: "outside"; "inside")
                        # JTP comments: Same comments as above, rename or exclude.
                        strip.text.y = element_text(angle = -90), #how the y-axis are drawn. Here, it is at a 90 degree angle
-                       box = TRUE #if box = TRUE, black rectangle border
+                       box = TRUE, #if box = TRUE, black rectangle border
                        # JTP comments: Changed box to TRUE rather than "yes". Use T/F instead so that "Yes" or "YES" doesn't confuse
+                      ...
 )
 {
+  loadfonts(device="win")
 
   ### cowplot STYLE only changed font to serif and legend position
   half_line <- font_size / 2
@@ -56,8 +59,18 @@ theme_adfg = function(font_size = 18,
     element_rect(fill="white", color = NA)
   }
 
+  on.exit({
+    if (!font_family %in% extrafont::fonts()) {
+      # message("\nFont 'Times New Roman' not found.\nPlease run: extrafont::font_import()
+      #         \nNote that this will take several minutes to install\n")
+      message(
+        sprintf("\nFont '%s' not found. \nPlease run extrafont::font_import() once to register system fonts.
+                \nNote that this will take several minutes to install.\n", font_family))
+    }
+  }, add = TRUE)
+
   #the main theme adjustment
-  theme_grey(base_size = font_size, base_family = font_family) %+replace%
+  theme_gray(base_size = font_size, base_family = font_family) %+replace%
     theme(
       strip.background = element_rect(fill = NA, color = NA), #AGR added
       #linewidth = line_size, #Agr added 8/4/25, untested
@@ -197,7 +210,5 @@ theme_adfg = function(font_size = 18,
       legend.position = "inside",
       legend.position.inside = legend.position.set #agr changed
     )
-
 }
-
 

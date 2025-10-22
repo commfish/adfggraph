@@ -14,7 +14,8 @@ theme_adfg(
   legend.justification = "center",
   strip.placement = "outside",
   strip.text.y = element_text(angle = -90),
-  box = TRUE
+  box = TRUE,
+  ...
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ theme_adfg(
 
 \item{font_family}{Sets which font family you want to use. Default is
 Times New Roman.}
+
+\item{...}{Other arguments}
 }
 \value{
 The output returned will be either an object of \code{theme_adfg()},
