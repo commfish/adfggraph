@@ -24,10 +24,12 @@ theme_adfg = function(font_size = 18,
                       font_family = "Times New Roman", #"sans", #times new roman is recommended
                       # JTP comments: rel_small, rel_tiny need to be renamed as they're not intuitive. A good argument
                       #               name should be self explanatory, not require code comments
-                      rel_small = 0.86 * font_size/font_size, #font size for the legend
-                      rel_tiny = 0.79 * font_size/font_size, #font size for the caption
-                      rel_large = 1.15 * font_size/font_size, #font size for the title
-                      legend.position.set= c(0.8, 0.9), #"left", "right", "bottom", "top";
+                      rel_small = 0.86, #font size for the legend
+                      rel_tiny = 0.79, #font size for the caption
+                      rel_large = 1.15 , #font size for the title
+                      # JTP comments: The code before didn't rely on font size so that needs to be set.
+                      #               It multiplied then divided by font_size....
+                      legend.position.set = c(0.8, 0.9), #"left", "right", "bottom", "top";
                       # sets where the legend is placed inside the plot panel
                       legend.justification = "center", #the anchor point where the legend is set
                        # JTP comments: legend.justification should be renamed. Don't use arguments that are

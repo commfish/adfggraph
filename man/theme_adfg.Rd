@@ -7,9 +7,9 @@
 theme_adfg(
   font_size = 18,
   font_family = "Times New Roman",
-  rel_small = 0.86 * font_size/font_size,
-  rel_tiny = 0.79 * font_size/font_size,
-  rel_large = 1.15 * font_size/font_size,
+  rel_small = 0.86,
+  rel_tiny = 0.79,
+  rel_large = 1.15,
   legend.position.set = c(0.8, 0.9),
   legend.justification = "center",
   strip.placement = "outside",
