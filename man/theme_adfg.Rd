@@ -11,14 +11,32 @@ theme_adfg(
   rel_tiny = 0.79 * font_size/font_size,
   rel_large = 1.15 * font_size/font_size,
   legend.position.set = c(0.8, 0.9),
-  legend.justification = c("center"),
-  strip.background = element_rect(fill = "grey80", color = NA),
+  legend.justification = "center",
   strip.placement = "outside",
   strip.text.y = element_text(angle = -90),
-  box = "yes"
+  box = TRUE
 )
 }
+\arguments{
+\item{font_size}{Size in points for font. Default is 18.}
+
+\item{font_family}{Sets which font family you want to use. Default is
+Times New Roman.}
+}
+\value{
+The output returned will be either an object of \code{theme_adfg()},
+}
 \description{
+\code{theme_adfg} creates a ggplot theme consistent for ADF&G publications.
+}
+\details{
+Format a Graph to ADF&G Publication Standards
+
 This function can be added to a ggplot to format the graph
 to ADF&G formatting standards.
+}
+\examples{
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point() + theme_adfg()
+
 }
