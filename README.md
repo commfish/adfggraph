@@ -4,7 +4,14 @@ A ggplot2 theme for reproducible figures in R in a uniform Alaska Department of 
 
 
 
-This theme creates a graph template for ADF\&G biologists, biometricians, and scientists to create a uniform graph output style that conforms with ADF\&G publication standards. The theme contains one function: theme_adfg, which can be added to a ggplot object to set the theme. This theme was created in collaboration with the ADF\&G reproducibility crew and publication team, to create uniform and professional ADF\&G figures. This work is heavily based on Andrew Padilla's theme\_adfg draft code and theme\_crisp by Justin Priest. The majority of this code was written by Padilla and Priest.
+This theme creates a graph template for ADF\&G biologists, biometricians, and 
+scientists to create a uniform graph output style that conforms with ADF\&G 
+publication standards. The theme contains one function: theme_adfg, which can be 
+added to a ggplot object to set the theme. This theme was created in 
+collaboration with the ADF\&G reproducibility crew and publication team, to 
+create uniform and professional ADF\&G figures. This work is heavily based on 
+Andrew Padilla's theme\_adfg draft code and theme\_crisp by Justin Priest. 
+The majority of this code was written by Padilla and Priest.
 
 This theme is still under review.
 
@@ -16,13 +23,11 @@ install.packages("remotes")
 remotes::install_github("commfish/adfggraph")
 library(adfggraph)
 ```
-While frowned upon in official ADF\&G publications, adding a color palette to a graph can greatly improve the impact, especially for posters and presentations. The theme itself is black and white, but colors can be added with [adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color palette of choice. The function adfg\_colors has some ADF\&G and Alaska-based color palettes.
-```
-remotes::install_github("justinpriest/adfgcolors")
-library(adfgcolors)
-```
+
 ## Examples
-The dataset "iris" is from the R package [datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) and was used for the examples.
+The dataset "iris" is from the R package 
+[datasets](https://www.rdocumentation.org/packages/datasets/versions/3.6.2) 
+and was used for the examples.
 
 ### Black and White Figures
 Basic scatterplot:
@@ -64,7 +69,16 @@ ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin()
 
 
 ### Color Figures
-
+While color use is cautioned in official ADF\&G publications, adding a color 
+palette to a graph can greatly improve the impact, especially for posters and 
+presentations. The theme itself is black and white, but colors can be added with 
+[adfg_colors](https://github.com/justinpriest/adfgcolors), or any other R color 
+palette of choice. The function adfg\_colors has some ADF\&G and Alaska-based 
+color palettes.
+```
+remotes::install_github("justinpriest/adfgcolors")
+library(adfgcolors)
+```
 Basic scatterplot:
 
 ```
@@ -124,18 +138,24 @@ The font size for the caption, if one is included. The default is 0.79*font_size
 The font size for the title. The default is 1.15*font_size.
 
 ### legend.position.set
-The coordinates inside the plot panel where the legend is placed. The default is c(0.8,0.9). This can be changed to different coordinates or "left", "right", "top", or "bottom".
+The coordinates inside the plot panel where the legend is placed. The default is 
+c(0.8,0.9). This can be changed to different coordinates or "left", "right", 
+"top", or "bottom".
 
 ### legend.justification
-The anchor point where the legend is set. The default is "center". This can be changed to "left", "right", "top", or "bottom".
+The anchor point where the legend is set. The default is "center". This can be 
+changed to "left", "right", "top", or "bottom".
 
 ### strip.placement
-Where the title is placed relative to the plot panels. The default is "outside", this could be changed to "inside".
+Where the title is placed relative to the plot panels. The default is "outside", 
+this could be changed to "inside".
 
 ### strip.text.y
-How the y-axis is drawn. The default is element_text(angle=-90), which puts the y-axis text at 90 degrees.
+How the y-axis is drawn. The default is element_text(angle=-90), which puts the 
+y-axis text at 90 degrees.
 
 ### box
-A box is drawn around the plot to comply with ADF&G publication standards. To turn this off, use box = "no". The default is box = "yes".
+A box is drawn around the plot to comply with ADF&G publication standards. To 
+turn this off, use box = "no". The default is box = "yes".
 
 
