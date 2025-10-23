@@ -1,6 +1,6 @@
 Package: adfggraph
 Title: A Graph Theme in ADF&G Formatting
-Version: 0.0.0.9000
+Version: 0.0.1.000
 Authors@R: 
     c(person("Alex", "Reich", ,"alex.reich@alaska.gov", role = c("aut", "cre")),
     person("Justin", "Priest", ,role = c("aut")),
