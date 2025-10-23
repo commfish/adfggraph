@@ -10,8 +10,8 @@ theme_adfg(
   rel_small = 0.86,
   rel_tiny = 0.79,
   rel_large = 1.15,
-  strip.text.y = element_text(angle = -90),
   box = TRUE,
+  base_line_size = font_size/22,
   ...
 )
 }
@@ -20,6 +20,8 @@ theme_adfg(
 
 \item{font_family}{Sets which font family you want to use. Default is
 Times New Roman.}
+
+\item{box}{TRUE/FALSE selection for whether to outline the plot in a box}
 
 \item{...}{Other arguments that are standard to ggplot \code{theme()}}
 }
