@@ -36,7 +36,7 @@ Basic scatterplot:
 library(ggplot2)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
   labs(x = "Petal length", y = "Petal width") + 
-  theme_adfg(box = "yes")
+  theme_adfg(box = TRUE)
 ```
 
 ![basic plot](/example_figures/base_plot.png)
@@ -47,7 +47,7 @@ Basic multipanel plot:
 library(ggplot2)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width) + geom_point() +
   labs(x = "Petal length", y = "Petal width") + 
-  theme_adfg(box = "yes", font_size = 14) + 
+  theme_adfg(box = TRUE, font_size = 14) + 
   facet_wrap(~Species, scales = "free") +
   guides(color = "none")
 ```
@@ -60,7 +60,7 @@ Violin plot:
 library(ggplot2)
 ggplot(iris) + aes(x = Species, y= Petal.Length, fill = Species) + geom_violin() +
   labs(x = "Species", y = "Frequency") + 
-  theme_adfg(legend.position.set = c(0.9, 0.25), box = "yes") + # move legend to a good spot
+  theme_adfg(legend.position.set = c(0.9, 0.25), box = TRUE) + # move legend to a good spot
   scale_fill_gray(start = 0, end = 1)
 ```
 
@@ -86,7 +86,7 @@ library(ggplot2)
 ggplot(iris) + aes(x = Petal.Length, y = Petal.Width, color = Species) + geom_point() +
   labs(x = "Petal length", y = "Petal width") + 
   theme_adfg(legend.position.set = c(0.9, 0.25), #move legend to a good spot
-             box ="yes") + # add a border
+             box =TRUE) + # add a border
   scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
 
@@ -98,7 +98,7 @@ Basic multipanel plot:
 library(ggplot2)
 ggplot(iris) + aes(x = Petal.Length, y= Petal.Width, color = Species) + geom_point() +
   labs(x = "Petal length", y = "Petal width") + 
-  theme_adfg(box = "yes", font_size = 14) +
+  theme_adfg(box = TRUE, font_size = 14) +
   scale_color_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)+
   facet_wrap(~Species, scales = "free")+
   guides(color = "none") # turn off legend
@@ -113,7 +113,7 @@ Violin plot:
 library(ggplot2)
 ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin() +
   labs(x = "Species", y = "Frequency") + 
-  theme_adfg(legend.position.set = c(0.9, 0.25), box = "yes")+ # move legend to a good spot
+  theme_adfg(legend.position.set = c(0.9, 0.25), box = TRUE)+ # move legend to a good spot
   scale_fill_adfg(palette = "bristolbay", discrete = TRUE, useexact = TRUE)
 ```
 
