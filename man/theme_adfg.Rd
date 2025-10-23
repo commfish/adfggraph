@@ -10,9 +10,6 @@ theme_adfg(
   rel_small = 0.86,
   rel_tiny = 0.79,
   rel_large = 1.15,
-  legend.position.set = c(0.8, 0.9),
-  legend.justification = "center",
-  strip.placement = "outside",
   strip.text.y = element_text(angle = -90),
   box = TRUE,
   ...
@@ -24,7 +21,7 @@ theme_adfg(
 \item{font_family}{Sets which font family you want to use. Default is
 Times New Roman.}
 
-\item{...}{Other arguments}
+\item{...}{Other arguments that are standard to ggplot \code{theme()}}
 }
 \value{
 The output returned will be either an object of \code{theme_adfg()},

@@ -8,7 +8,7 @@
 #' @param font_size Size in points for font. Default is 18.
 #' @param font_family Sets which font family you want to use. Default is
 #' Times New Roman.
-#' @param ... Other arguments
+#' @param ... Other arguments that are standard to ggplot \code{theme()}
 #'
 #' @return The output returned will be either an object of \code{theme_adfg()},
 #'
@@ -30,14 +30,14 @@ theme_adfg = function(font_size = 18,
                       rel_large = 1.15 , #font size for the title
                       # JTP comments: The code before didn't rely on font size so that needs to be set.
                       #               It multiplied then divided by font_size....
-                      legend.position.set = c(0.8, 0.9), #"left", "right", "bottom", "top";
+                      #legend.position.set = c(0.8, 0.9), #"left", "right", "bottom", "top";
                       # sets where the legend is placed inside the plot panel
-                      legend.justification = "center", #the anchor point where the legend is set
+                      #legend.justification = "center", #the anchor point where the legend is set
                        # JTP comments: legend.justification should be renamed. Don't use arguments that are
                        #               the same name as an existing argument/function/parameter.
                        #               Come to think of it, I'm not sure what this adds since it already exists
                        #               in regular ggplot so we don't need to add it here I don't think.
-                       strip.placement = "outside", #where labels are placed relative to the plot panels (ex: "outside"; "inside")
+                       #strip.placement = "outside", #where labels are placed relative to the plot panels (ex: "outside"; "inside")
                        # JTP comments: Same comments as above, rename or exclude.
                        strip.text.y = element_text(angle = -90), #how the y-axis are drawn. Here, it is at a 90 degree angle
                        box = TRUE, #if box = TRUE, black rectangle border
@@ -45,7 +45,6 @@ theme_adfg = function(font_size = 18,
                       ...
 )
 {
-  loadfonts(device="win")
 
   ### cowplot STYLE only changed font to serif and legend position
   half_line <- font_size / 2
@@ -70,7 +69,7 @@ theme_adfg = function(font_size = 18,
   }, add = TRUE)
 
   #the main theme adjustment
-  theme_gray(base_size = font_size, base_family = font_family) %+replace%
+  default_adfg_theme <- theme_gray(base_size = font_size, base_family = font_family) + #%+replace%
     theme(
       strip.background = element_rect(fill = NA, color = NA), #AGR added
       #linewidth = line_size, #Agr added 8/4/25, untested
@@ -148,7 +147,7 @@ theme_adfg = function(font_size = 18,
       # legend.position = legend.position, DEPRECATED
       #legend.position.inside = legend.position, #correcting for depreciation; moving this elsewhere
       legend.direction = NULL,
-      legend.justification = legend.justification,
+      #legend.justification = legend.justification, # JTP: I turned this off. It changes nothing
       legend.box = NULL,
       legend.box.margin = margin(0, 0, 0, 0),
       legend.box.background = element_blank(),
@@ -173,7 +172,7 @@ theme_adfg = function(font_size = 18,
       ),
       strip.text.x = NULL,
       strip.text.y = strip.text.y,
-      strip.placement = strip.placement,# changed from "inside"
+      #strip.placement = strip.placement,# changed from "inside"
       strip.placement.x = NULL,
       strip.placement.y = NULL,
       strip.switch.pad.grid = unit(qtr_line, "pt"),
@@ -206,9 +205,16 @@ theme_adfg = function(font_size = 18,
       ),
       plot.tag.position = c(0, 1),
       plot.margin = margin(20, 20, 20, 25), #was half_line x 4
-      complete = TRUE,
-      legend.position = "inside",
-      legend.position.inside = legend.position.set #agr changed
+      complete = TRUE
+      #legend.position = "inside",
+      #legend.position.inside = legend.position.set #agr changed
     )
+
+  # Allow for users to supply custom ggplot theme modifications
+  user_theme <- do.call(ggplot2::theme, list(...))
+
+  # Combine the default and custom modifications
+  default_adfg_theme + user_theme
+
 }
 
