@@ -120,7 +120,7 @@ ggplot(iris) + aes(x = Species, y = Petal.Length, fill = Species) + geom_violin(
 ![violin plot](/example_figures/fill_plot.png)
 
 
-##Arguments and defaults
+## Arguments and defaults
 
 ### font_size
 The font size. The default is 18.
