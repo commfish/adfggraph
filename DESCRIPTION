@@ -1,11 +1,11 @@
 Package: adfggraph
 Title: A Graph Theme in ADF&G Formatting
-Version: 0.0.2.101
+Version: 0.0.2.102
 Authors@R: 
-    c(person("Alex", "Reich", "alex.reich@alaska.gov", role = c("aut", "cre")),
-    person("Justin", "Priest", "justin.priest@alaska.gov", role = c("aut", "cre")),
-    person("Sara", "Miller", "sara.miller@alaska.gov", role = c("aut")),
-    person("Andrew", "Padilla", role = c("aut")))
+    c(person("Alex", "Reich", , "alex.reich@alaska.gov", role = c("aut", "cre")),
+    person("Justin", "Priest", "justin.priest@alaska.gov", role = aut"),
+    person("Sara", "Miller", "sara.miller@alaska.gov", role = "aut"),
+    person("Andrew", "Padilla", role = "aut"))
 Description: This package contains one function, theme_adfg. theme_adfg is a 
   clean graph theme that complies with ADF&G formatting standards for publication.
 License: `use_mit_license()`
