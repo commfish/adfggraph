@@ -61,15 +61,15 @@ theme_adfg = function(font_size = 18,
     element_rect(fill="white", color = NA)
   }
 
-  on.exit({
-    if (!font_family %in% extrafont::fonts()) {
-      # message("\nFont 'Times New Roman' not found.\nPlease run: extrafont::font_import()
-      #         \nNote that this will take several minutes to install\n")
-      message(
-        sprintf("\nFont '%s' not found. \nPlease run extrafont::font_import() once to register system fonts.
-                \nNote that this will take several minutes to install.\n", font_family))
-    }
-  }, add = TRUE)
+  # on.exit({
+  #   if (!font_family %in% extrafont::fonts()) {
+  #     # message("\nFont 'Times New Roman' not found.\nPlease run: extrafont::font_import()
+  #     #         \nNote that this will take several minutes to install\n")
+  #     message(
+  #       sprintf("\nFont '%s' not found. \nPlease run extrafont::font_import() once to register system fonts.
+  #               \nNote that this will take several minutes to install.\n", font_family))
+  #   }
+  # }, add = TRUE)
 
   #the main theme adjustment
   default_adfg_theme <- theme_gray(base_size = font_size, base_family = font_family) + #%+replace%
