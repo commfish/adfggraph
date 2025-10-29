@@ -2,7 +2,7 @@ Package: adfggraph
 Title: A Graph Theme in ADF&G Formatting
 Version: 0.0.2.103
 Authors@R: 
-    c(person(given = given[["Alex"]], family = [["Reich"]], , "alex.reich@alaska.gov", role = c("aut", "cre")),
+    c(person(given = given[["Alex"]], family = family[["Reich"]], , "alex.reich@alaska.gov", role = c("aut", "cre")),
     person(given = "Justin", family = "Priest", "justin.priest@alaska.gov", role = "aut"),
     person(given = "Sara", family = "Miller", "sara.miller@alaska.gov", role = "aut"),
     person(given = "Andrew", family = "Padilla", role = "aut"))
