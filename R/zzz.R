@@ -2,7 +2,8 @@
 
 .onLoad <- function(libname, pkgname) {
   # Try to load fonts quietly when the package is loaded
-  if ("extrafont" %in% rownames(installed.packages())) {
+  #if ("extrafont" %in% rownames(installed.packages())) {
+  if (requireNamespace("extrafont", quietly = TRUE)) {
     tryCatch({
       extrafont::loadfonts(quiet = TRUE)
     }, error = function(e) {
