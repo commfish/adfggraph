@@ -1,12 +1,12 @@
 Package: adfggraph
 Title: A Graph Theme in ADF&G Formatting
-Version: 0.0.2.103
+Version: 0.0.2.104
 Authors@R: 
-    c(person(given = given[["Alex"]], family = family[["Reich"]], , "alex.reich@alaska.gov", role = c("aut", "cre")),
-    person(given = "Justin", family = "Priest", "justin.priest@alaska.gov", role = "aut"),
-    person(given = "Sara", family = "Miller", "sara.miller@alaska.gov", role = "aut"),
-    person(given = "Andrew", family = "Padilla", role = "aut"))
-Description: This package contains one function, theme_adfg. theme_adfg is a 
+    c(person("Alex", "Reich", "alex.reich@alaska.gov", role = c("aut", "cre")),
+    person("Justin", "Priest", "justin.priest@alaska.gov", role = "aut"),
+    person("Sara", "Miller", "sara.miller@alaska.gov", role = "aut"),
+    person("Andrew", "Padilla", role = "aut"))
+Description: A default ggplot theme that contains one function, theme_adfg. theme_adfg is a 
   clean graph theme that complies with ADF&G formatting standards for publication.
 License: `use_mit_license()`
 Encoding: UTF-8
