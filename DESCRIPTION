@@ -4,7 +4,7 @@ Version: 0.0.2.101
 Authors@R: 
     c(person("Alex", "Reich", "alex.reich@alaska.gov", role = c("aut", "cre")),
     person("Justin", "Priest", "justin.priest@alaska.gov", role = c("aut", "cre")),
-    person("Sara", "Miller", "sara.miller@alaska.gov", role = c("aut"))),
+    person("Sara", "Miller", "sara.miller@alaska.gov", role = c("aut")),
     person("Andrew", "Padilla", role = c("aut")))
 Description: This package contains one function, theme_adfg. theme_adfg is a 
   clean graph theme that complies with ADF&G formatting standards for publication.
