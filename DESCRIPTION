@@ -1,6 +1,6 @@
 Package: adfggraph
 Title: A Graph Theme in ADF&G Formatting
-Version: 0.0.2.102
+Version: 0.0.2.103
 Authors@R: 
     c(person("Alex", "Reich", , "alex.reich@alaska.gov", role = c("aut", "cre")),
     person("Justin", "Priest", "justin.priest@alaska.gov", role = "aut"),
@@ -15,6 +15,3 @@ RoxygenNote: 7.3.3
 Imports:
     ggplot2 (>= 3.5.2),
     extrafont
-Collate:
-    'theme_adfg.R',
-    'zzz.R'
