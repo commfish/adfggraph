@@ -7,9 +7,9 @@
 theme_adfg(
   font_size = 18,
   font_family = "Times New Roman",
-  rel_small = 0.86,
-  rel_tiny = 0.79,
-  rel_large = 1.15,
+  font_size_title = 1.15,
+  font_size_legend = 0.86,
+  font_size_caption = 0.79,
   box = TRUE,
   base_line_size = font_size/22,
   ...
