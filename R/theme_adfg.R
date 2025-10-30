@@ -26,25 +26,18 @@ theme_adfg = function(font_size = 18,
                       font_family = "Times New Roman", #"sans", #times new roman is recommended
                       # JTP comments: rel_small, rel_tiny need to be renamed as they're not intuitive. A good argument
                       #               name should be self explanatory, not require code comments
-                      rel_small = 0.86, #font size for the legend
-                      rel_tiny = 0.79, #font size for the caption
-                      rel_large = 1.15 , #font size for the title
+                      font_size_title = 1.15 , #font size for the title
+                      font_size_legend = 0.86, #font size for the legend
+                      font_size_caption = 0.79, #font size for the caption
                       # JTP comments: The code before didn't rely on font size so that needs to be set.
                       #               It multiplied then divided by font_size....
-                      #legend.position.set = c(0.8, 0.9), #"left", "right", "bottom", "top";
-                      # sets where the legend is placed inside the plot panel
-                      #legend.justification = "center", #the anchor point where the legend is set
-                       # JTP comments: legend.justification should be renamed. Don't use arguments that are
-                       #               the same name as an existing argument/function/parameter.
-                       #               Come to think of it, I'm not sure what this adds since it already exists
-                       #               in regular ggplot so we don't need to add it here I don't think.
-                       #strip.placement = "outside", #where labels are placed relative to the plot panels (ex: "outside"; "inside")
-                       # JTP comments: Same comments as above, rename or exclude.
-                       #strip.text.y = element_text(angle = -90), #how the y-axis are drawn. Here, it is at a 90 degree angle
-                       # JTP: the strip.text.y was already defaulted to -90. It can still be modified.
+                      # JTP 10/29: Renamed variables. Not convinced we need 3 parameters for font sizing
+                      #            but it's not the worst thing. Suggest keeping as is for now and deciding as a group.
+                      #            I'm guessing the best solution will be to hard code these (not variables) but allow people to
+                      #            manually change these as they line.
                        box = TRUE, #if box = TRUE, black rectangle border
                        base_line_size = font_size / 22, #JTP added based on code from ggplot
-                       # JTP comments: Changed box to TRUE rather than "yes". Use T/F instead so that "Yes" or "YES" doesn't confuse
+                      # JTP 10/29: Will need to decide as a group if having a variable to change the line size is important
                       ...
 )
 {
@@ -52,7 +45,7 @@ theme_adfg = function(font_size = 18,
   ### cowplot STYLE only changed font to serif and legend position
   half_line <- font_size / 2
   qtr_line <- font_size / 4
-  small_size <- rel_small * font_size
+  small_size <- font_size_legend * font_size
 
   #conditional do-I-want-a-box?
   plot_background_box <- if(box == TRUE) {
@@ -61,15 +54,13 @@ theme_adfg = function(font_size = 18,
     element_rect(fill="white", color = NA)
   }
 
-  # on.exit({
-  #   if (!font_family %in% extrafont::fonts()) {
-  #     # message("\nFont 'Times New Roman' not found.\nPlease run: extrafont::font_import()
-  #     #         \nNote that this will take several minutes to install\n")
-  #     message(
-  #       sprintf("\nFont '%s' not found. \nPlease run extrafont::font_import() once to register system fonts.
-  #               \nNote that this will take several minutes to install.\n", font_family))
-  #   }
-  # }, add = TRUE)
+  on.exit({
+    if (!font_family %in% extrafont::fonts()) {
+      message(
+        sprintf("\nFont '%s' not found. \nPlease run extrafont::font_import() once to register system fonts.
+                \nNote that this will take several minutes to install.\n", font_family))
+    }
+  }, add = TRUE)
 
   #the main theme adjustment
   default_adfg_theme <- theme_gray(base_size = font_size, base_family = font_family) + #%+replace%
@@ -140,7 +131,7 @@ theme_adfg = function(font_size = 18,
       legend.key.size = unit(1.1 * font_size, "pt"),
       #legend.key.height = NULL, # FLAG for deletion. redundant to theme_gray()
       #legend.key.width = NULL, # FLAG for deletion. redundant to theme_gray()
-      legend.text = element_text(size = rel(rel_small)),
+      legend.text = element_text(size = rel(font_size_legend)),
       legend.text.align = NULL,
       legend.title = element_text(hjust = 0), #edit this to correct for the legend.title.align depreciating, if needed
       #legend.title.align = 0.5, DEPRECATED!
@@ -168,7 +159,7 @@ theme_adfg = function(font_size = 18,
       #panel.ontop = FALSE, # FLAG for deletion. redundant to theme_gray()
       # strip.background = strip.background, idk what this was doing AGR
       strip.text = element_text(
-        size = rel(rel_small),
+        size = rel(font_size_legend),
         margin = margin(qtr_line, qtr_line, qtr_line, qtr_line)
       ),
       #strip.text.x = NULL, # FLAG for deletion. redundant to theme_gray()
@@ -182,15 +173,15 @@ theme_adfg = function(font_size = 18,
       plot.background = plot_background_box, #agr added
       plot.title = element_text(
         face = "bold",
-        size = rel(rel_large),
+        size = rel(font_size_title),
         margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure
       ),
       plot.subtitle = element_text(
-        size = rel(rel_small),
+        size = rel(font_size_legend),
         margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure
       ),
       plot.caption = element_text(
-        size = rel(rel_tiny),
+        size = rel(font_size_caption),
         margin = margin(t = half_line) # I think this changes nothing as it's the default but not sure
       ),
       plot.tag = element_text(
