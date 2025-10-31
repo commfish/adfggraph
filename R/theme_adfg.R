@@ -3,7 +3,7 @@
 #' This function can be added to a ggplot to format the graph
 #' to ADF&G formatting standards.
 #' @title Format a Graph to ADF&G Publication Standards
-#' @description \code{theme_adfg} creates a ggplot theme consistent for ADF&G publications.
+#' @description \code{theme_adfg} creates a ggplot theme that is consistent with ADF&G publication guidelines.
 #'
 #' @param font_size Size in points for font. Default is 18.
 #' @param font_family Sets which font family you want to use. Default is
@@ -23,14 +23,12 @@
 #'
 #' @export
 theme_adfg = function(font_size = 18,
-                      font_family = "Times New Roman", #"sans", #times new roman is recommended
-                      # JTP comments: rel_small, rel_tiny need to be renamed as they're not intuitive. A good argument
-                      #               name should be self explanatory, not require code comments
+                      font_family = "Times New Roman", #"sans", #times new roman is recommended by the ADF&G publication guidelines
                       font_size_title = 1.15 , #font size for the title
                       font_size_legend = 0.86, #font size for the legend
                       font_size_caption = 0.79, #font size for the caption
                       # JTP comments: The code before didn't rely on font size so that needs to be set.
-                      #               It multiplied then divided by font_size....
+                      #               It multiplied then divided by font_size.... #AGR flag
                       # JTP 10/29: Renamed variables. Not convinced we need 3 parameters for font sizing
                       #            but it's not the worst thing. Suggest keeping as is for now and deciding as a group.
                       #            I'm guessing the best solution will be to hard code these (not variables) but allow people to
@@ -65,37 +63,25 @@ theme_adfg = function(font_size = 18,
   #the main theme adjustment
   default_adfg_theme <- theme_gray(base_size = font_size, base_family = font_family) + #%+replace%
     theme(
-      strip.background = element_rect(fill = NA, color = NA), #AGR added
-      #linewidth = line_size, #Agr added 8/4/25, untested
+      strip.background = element_rect(fill = NA, color = NA),
       line = element_line(
         color = "black",
-       # size = line_size, obsolete, use linewidth instead
-        linewidth = base_line_size,
-        #linetype = 1,
-        #lineend = "butt" # FLAG for deletion. Redundant to theme_gray()
+        linewidth = base_line_size
       ),
       rect = element_rect(
         fill = NA, color = NA,
-        linewidth = base_line_size,
+        linewidth = base_line_size
       ),
       text = element_text(
         family = font_family,
         color = "black",
-        size = font_size,
-        #hjust = 0.5, # FLAG for deletion. All the following are redundant to theme_gray()
-        #vjust = 0.5,
-        #angle = 0,
-        #lineheight = 0.9,
-        #margin = margin(),
-        #debug = FALSE
+        size = font_size
       ),
       axis.line = element_line(
         color = "black",
-        #size = line_size, #agr turned off
         lineend = "square"
       ),
-      #axis.line.x = NULL, # FLAG for deletion. All the following are redundant to theme_gray()
-      #axis.line.y = NULL, # FLAG for deletion. All the following are redundant to theme_gray()
+
       axis.text = element_text(color = "black",
                                size = small_size),
       axis.text.x = element_text(margin = margin(t = small_size / 4),
@@ -107,7 +93,6 @@ theme_adfg = function(font_size = 18,
       axis.text.y.right = element_text(margin = margin(l = small_size / 4),
                                        hjust = 0),
       axis.ticks = element_line(color = "black",
-                                #size = line_size
                                 ),
       axis.ticks.length = unit(qtr_line, "pt"), #JTP: explore how this is different than default rel(0.5)
       axis.title.x = element_text(margin = margin(t = qtr_line), vjust = -0.75), #default vjust = 1
@@ -118,34 +103,21 @@ theme_adfg = function(font_size = 18,
         vjust = 3
       ),
       axis.title.y.right = element_text(
-        #angle = -90, # FLAG for deletion. redundant to theme_gray()
         margin = margin(l = qtr_line),
         vjust = 0 # default vjust = 1
       ),
-      legend.background = element_blank(), # I think that this does nothing
+      #legend.background = element_blank(), # I think that this does nothing #agr test off
       legend.spacing = unit(font_size, "pt"), # default rel(2)
-      #legend.spacing.x = NULL, # FLAG for deletion. redundant to theme_gray()
-      #legend.spacing.y = NULL, # FLAG for deletion. redundant to theme_gray()
       legend.margin = margin(0, 0, 0, 0),
       legend.key = element_blank(), # default is NULL
       legend.key.size = unit(1.1 * font_size, "pt"),
-      #legend.key.height = NULL, # FLAG for deletion. redundant to theme_gray()
-      #legend.key.width = NULL, # FLAG for deletion. redundant to theme_gray()
       legend.text = element_text(size = rel(font_size_legend)),
       legend.text.align = NULL,
       legend.title = element_text(hjust = 0), #edit this to correct for the legend.title.align depreciating, if needed
-      #legend.title.align = 0.5, DEPRECATED!
-      # legend.position = "bottom",
-      # legend.position = legend.position, DEPRECATED
-      #legend.position.inside = legend.position, #correcting for depreciation; moving this elsewhere
       legend.direction = NULL,
-      #legend.justification = legend.justification, # JTP: I turned this off. It changes nothing
-      #legend.box = NULL, # FLAG for deletion. redundant to theme_gray()
       legend.box.margin = margin(0, 0, 0, 0),
-      #legend.box.background = element_blank(), # FLAG for deletion. redundant to theme_gray()
       legend.box.spacing = unit(font_size, "pt"),
       panel.background = element_blank(),
-      #panel.border = element_blank(), # FLAG for deletion. redundant to theme_gray()
       panel.grid = element_blank(),
       panel.grid.major = NULL,
       panel.grid.minor = NULL,
@@ -154,46 +126,33 @@ theme_adfg = function(font_size = 18,
       panel.grid.minor.x = NULL,
       panel.grid.minor.y = NULL,
       panel.spacing = unit(half_line, "pt"),
-      #panel.spacing.x = NULL, # FLAG for deletion. redundant to theme_gray()
-      #panel.spacing.y = NULL, # FLAG for deletion. redundant to theme_gray()
-      #panel.ontop = FALSE, # FLAG for deletion. redundant to theme_gray()
-      # strip.background = strip.background, idk what this was doing AGR
       strip.text = element_text(
         size = rel(font_size_legend),
         margin = margin(qtr_line, qtr_line, qtr_line, qtr_line)
       ),
-      #strip.text.x = NULL, # FLAG for deletion. redundant to theme_gray()
-      #strip.text.y = strip.text.y,
-      #strip.placement = strip.placement,# changed from "inside"
-      #strip.placement.x = NULL, # FLAG for deletion. redundant to theme_gray()
-      #strip.placement.y = NULL, # FLAG for deletion. redundant to theme_gray()
       strip.switch.pad.grid = unit(qtr_line, "pt"),
       strip.switch.pad.wrap = unit(qtr_line, "pt"),
-      #plot.background = element_blank(),
-      plot.background = plot_background_box, #agr added
+      plot.background = plot_background_box,
       plot.title = element_text(
         face = "bold",
         size = rel(font_size_title),
-        margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure
+       # margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure #agr test off
       ),
       plot.subtitle = element_text(
         size = rel(font_size_legend),
-        margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure
+        #margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure #agr test off
       ),
       plot.caption = element_text(
         size = rel(font_size_caption),
-        margin = margin(t = half_line) # I think this changes nothing as it's the default but not sure
+        #margin = margin(t = half_line) # I think this changes nothing as it's the default but not sure #agr test off
       ),
       plot.tag = element_text(
         face = "bold",
         hjust = 0,
         vjust = 0.7 #defaults for this are 0.5, 0.5
       ),
-      plot.tag.position = c(0, 1), # default is topleft which I believe is the exact same as this
+      #plot.tag.position = c(0, 1), # default is topleft which I believe is the exact same as this #agr test off
       plot.margin = margin(20, 20, 20, 25) #was half_line x 4
-      #complete = TRUE # FLAG for deletion. redundant to theme_gray()
-      #legend.position = "inside",
-      #legend.position.inside = legend.position.set #agr changed
     )
 
   # Allow for users to supply custom ggplot theme modifications
