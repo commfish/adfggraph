@@ -9,6 +9,7 @@
 #' @param font_family Sets which font family you want to use. Default is
 #' Times New Roman.
 #' @param box TRUE/FALSE selection for whether to outline the plot in a box
+#' @param base_line_size Setting that changes line size. Default is font_size/22.
 #' @param ... Other arguments that are standard to ggplot \code{theme()}
 #'
 #' @return The output returned will be either an object of \code{theme_adfg()},
@@ -24,15 +25,6 @@
 #' @export
 theme_adfg = function(font_size = 18,
                       font_family = "Times New Roman", #"sans", #times new roman is recommended by the ADF&G publication guidelines
-                      font_size_title = 1.15 , #font size for the title
-                      font_size_legend = 0.86, #font size for the legend
-                      font_size_caption = 0.79, #font size for the caption
-                      # JTP comments: The code before didn't rely on font size so that needs to be set.
-                      #               It multiplied then divided by font_size.... #AGR flag
-                      # JTP 10/29: Renamed variables. Not convinced we need 3 parameters for font sizing
-                      #            but it's not the worst thing. Suggest keeping as is for now and deciding as a group.
-                      #            I'm guessing the best solution will be to hard code these (not variables) but allow people to
-                      #            manually change these as they line.
                        box = TRUE, #if box = TRUE, black rectangle border
                        base_line_size = font_size / 22, #JTP added based on code from ggplot
                       # JTP 10/29: Will need to decide as a group if having a variable to change the line size is important
@@ -40,10 +32,16 @@ theme_adfg = function(font_size = 18,
 )
 {
 
+  #setting relative font sizes
+  font_size_title = 1.2  #font size for the title
+  font_size_legend = 1 #font size for the legend
+  font_size_caption = 0.8 #font size for the caption
+
   ### cowplot STYLE only changed font to serif and legend position
   half_line <- font_size / 2
   qtr_line <- font_size / 4
-  small_size <- font_size_legend * font_size
+  #small_size <- font_size_legend * font_size #agr 11/14- this seem unnecessary
+  small_size <- font_size * 0.9 #makes small_size smaller than the set font size
 
   #conditional do-I-want-a-box?
   plot_background_box <- if(box == TRUE) {
@@ -94,7 +92,7 @@ theme_adfg = function(font_size = 18,
                                        hjust = 0),
       axis.ticks = element_line(color = "black",
                                 ),
-      axis.ticks.length = unit(qtr_line, "pt"), #JTP: explore how this is different than default rel(0.5)
+      axis.ticks.length = unit(qtr_line, "pt"), #JTP: explore how this is different than default rel(0.5) - AGR - quarter line makes the new default rel(0.25)
       axis.title.x = element_text(margin = margin(t = qtr_line), vjust = -0.75), #default vjust = 1
       axis.title.x.top = element_text(margin = margin(b = qtr_line), vjust = -0.75),
       axis.title.y = element_text(
@@ -106,7 +104,6 @@ theme_adfg = function(font_size = 18,
         margin = margin(l = qtr_line),
         vjust = 0 # default vjust = 1
       ),
-      #legend.background = element_blank(), # I think that this does nothing #agr test off
       legend.spacing = unit(font_size, "pt"), # default rel(2)
       legend.margin = margin(0, 0, 0, 0),
       legend.key = element_blank(), # default is NULL
@@ -136,22 +133,19 @@ theme_adfg = function(font_size = 18,
       plot.title = element_text(
         face = "bold",
         size = rel(font_size_title),
-       # margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure #agr test off
       ),
       plot.subtitle = element_text(
         size = rel(font_size_legend),
-        #margin = margin(b = half_line) # I think this changes nothing as it's the default but not sure #agr test off
       ),
       plot.caption = element_text(
         size = rel(font_size_caption),
-        #margin = margin(t = half_line) # I think this changes nothing as it's the default but not sure #agr test off
+        hjust = 0 #left aligning the caption
       ),
       plot.tag = element_text(
         face = "bold",
         hjust = 0,
         vjust = 0.7 #defaults for this are 0.5, 0.5
       ),
-      #plot.tag.position = c(0, 1), # default is topleft which I believe is the exact same as this #agr test off
       plot.margin = margin(20, 20, 20, 25) #was half_line x 4
     )
 
